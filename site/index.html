@@ -41,6 +41,18 @@
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{}}}</script>
+  <style>
+    /* ── Mobile-only overrides (higher specificity beats Tailwind utilities) ── */
+    @media (max-width: 1023px) {
+      section.py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+      section.py-20 { padding-top: 3rem; padding-bottom: 3rem; }
+      section.pt-28 { padding-top: 4.5rem; }
+    }
+    @media (max-width: 639px) {
+      /* Tighter feature section column gap on small mobile */
+      .feature-layout { gap: 2.5rem; }
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-white text-[#0a0a0a]">
 
@@ -80,11 +92,11 @@
       Kostenlose Beta · Früher Zugang
     </div>
 
-    <h1 class="hero-anim-2 text-[2.8rem] sm:text-6xl lg:text-[84px] font-black text-[#0a0a0a] leading-[1.02] tracking-[-0.03em] mb-6">
+    <h1 class="hero-anim-2 text-[2rem] sm:text-[2.8rem] md:text-6xl lg:text-[84px] font-black text-[#0a0a0a] leading-[1.06] sm:leading-[1.02] tracking-[-0.03em] mb-6">
       Aus Einzelwissen<br>
       <span style="color:#10b981">wird Teamwissen.</span>
     </h1>
-    <p class="hero-anim-3 text-xl text-[rgba(0,0,0,0.5)] leading-relaxed max-w-lg mx-auto mb-10">
+    <p class="hero-anim-3 text-base sm:text-xl text-[rgba(0,0,0,0.5)] leading-relaxed max-w-lg mx-auto mb-10">
       Adopty ist euer interner Feed für KI-Workflows. Teilen, entdecken und messen, was wirklich funktioniert.
     </p>
 
@@ -280,8 +292,8 @@
   <div class="max-w-5xl mx-auto">
     <div class="reveal-section mb-14">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Das Problem</p>
-      <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight max-w-2xl">KI ist da. Die Struktur fehlt.</h2>
-      <p class="mt-4 text-lg text-[rgba(0,0,0,0.55)] max-w-xl leading-relaxed">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight max-w-2xl">KI ist da. Die Struktur fehlt.</h2>
+      <p class="mt-4 text-base sm:text-lg text-[rgba(0,0,0,0.55)] max-w-xl leading-relaxed">
         90 % der Unternehmen experimentieren bereits mit KI-Tools — aber kaum eines hat eine Methode, das Wissen zu sichern, zu skalieren oder den Nutzen zu messen.
       </p>
     </div>
@@ -373,10 +385,10 @@
     <div class="reveal-section flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-14">
       <div class="flex-1">
         <p class="text-xs font-semibold tracking-[0.18em] uppercase text-white/40 mb-6">Team-Workflow-Feed</p>
-        <h2 class="text-4xl sm:text-5xl font-black text-white leading-tight">Teilen. Bewerten. <span style="color:#10b981">Übernehmen.</span></h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">Teilen. Bewerten. <span style="color:#10b981">Übernehmen.</span></h2>
       </div>
       <div class="flex-1 lg:pt-8">
-        <p class="text-lg text-white/55 leading-relaxed mb-8">Ein interner Feed, in dem dein Team die besten KI-Workflows postet — und andere sie mit einem Klick übernehmen können. Wie LinkedIn, aber für euer Unternehmenswissen.</p>
+        <p class="text-base sm:text-lg text-white/55 leading-relaxed mb-8">Ein interner Feed, in dem dein Team die besten KI-Workflows postet — und andere sie mit einem Klick übernehmen können. Wie LinkedIn, aber für euer Unternehmenswissen.</p>
         <ul class="space-y-3">
           <li class="flex items-start gap-3 text-sm text-white/60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Workflows posten, kommentieren und bewerten</li>
           <li class="flex items-start gap-3 text-sm text-white/60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Prompt direkt kopierbar aus jeder Karte</li>
@@ -468,8 +480,8 @@
   <div class="max-w-6xl mx-auto">
     <div class="max-w-2xl mb-12">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Der direkte Vergleich</p>
-      <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight mb-4">Warum Excel, Notion &amp;<br class="hidden sm:block"> Confluence nicht reichen.</h2>
-      <p class="text-lg text-[rgba(0,0,0,0.5)] leading-relaxed">Diese Tools wurden für Dokumente und Daten gebaut — nicht für lebendige KI-Adoption. Der Unterschied zeigt sich im Detail.</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-4">Warum Excel, Notion &amp;<br class="hidden sm:block"> Confluence nicht reichen.</h2>
+      <p class="text-base sm:text-lg text-[rgba(0,0,0,0.5)] leading-relaxed">Diese Tools wurden für Dokumente und Daten gebaut — nicht für lebendige KI-Adoption. Der Unterschied zeigt sich im Detail.</p>
     </div>
     <div id="comparison-table"></div>
   </div>
@@ -480,7 +492,7 @@
   <div class="max-w-6xl mx-auto">
     <div class="reveal-section mb-16">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Was Adopty kann</p>
-      <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight">Vier Säulen. Ein System.</h2>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight">Vier Säulen. Ein System.</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Pillar 1 -->
@@ -558,7 +570,7 @@
 <!-- ── GOVERNANCE FEATURE ── -->
 <section class="py-24 px-6 bg-[#f8f8f8] border-t border-[rgba(0,0,0,0.06)] overflow-hidden">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+    <div class="feature-layout flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
       <!-- Left: Animated mockup -->
       <div class="reveal-section flex-1 w-full" data-delay="0">
@@ -578,8 +590,8 @@
             </div>
             <!-- App layout -->
             <div class="flex bg-white" style="min-height:420px">
-              <!-- Sidebar -->
-              <div class="w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex flex-col gap-0.5 flex-shrink-0">
+              <!-- Sidebar (hidden on mobile) -->
+              <div class="hidden lg:flex w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex-col gap-0.5 flex-shrink-0">
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Feed</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Gespeichert</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Knowledge Hub</div>
@@ -670,10 +682,10 @@
           <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)]">Governance &amp; Freigabe</p>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0">Optional aktivierbar</span>
         </div>
-        <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
           Nur geprüfte Workflows kommen in den Feed.
         </h2>
-        <p class="text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-10">
+        <p class="text-base sm:text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-8 lg:mb-10">
           Adopty gibt Admins eine strukturierte Freigabe-Inbox. Kein Workflow erreicht das Team ohne Qualitätsprüfung — Kontrolle ohne Bürokratie.
         </p>
         <ul class="space-y-6">
@@ -714,7 +726,7 @@
 <!-- ── GF-DASHBOARD FEATURE ── -->
 <section class="py-24 px-6 bg-white border-t border-[rgba(0,0,0,0.06)] overflow-hidden">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
+    <div class="feature-layout flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
 
       <!-- Mockup (right via flex-row-reverse) -->
       <div class="reveal-section flex-1 w-full" data-delay="0">
@@ -732,8 +744,8 @@
               <div class="flex-1 mx-4 bg-[#f5f5f5] rounded-lg px-3 py-1 text-xs text-[rgba(0,0,0,0.35)] border border-[rgba(0,0,0,0.07)] text-center">app.adopty.de/dashboard</div>
             </div>
             <div class="flex bg-white" style="min-height:420px">
-              <!-- Sidebar -->
-              <div class="w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex flex-col gap-0.5 flex-shrink-0">
+              <!-- Sidebar (hidden on mobile) -->
+              <div class="hidden lg:flex w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex-col gap-0.5 flex-shrink-0">
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Feed</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Gespeichert</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Knowledge Hub</div>
@@ -812,10 +824,10 @@
           <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)]">GF-Dashboard</p>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb">Nur für Admins & Leitung</span>
         </div>
-        <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
           Adoption verstehen. ROI sichtbar machen.
         </h2>
-        <p class="text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-10">
+        <p class="text-base sm:text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-8 lg:mb-10">
           Das GF-Dashboard zeigt Admins und Leitung auf einen Blick, wie das Team KI nutzt — Stunden gespart, ROI, Adoption Rate und wo Nachholbedarf besteht.
         </p>
         <ul class="space-y-6">
@@ -856,7 +868,7 @@
 <!-- ── KNOWLEDGE HUB FEATURE ── -->
 <section class="py-24 px-6 bg-[#f8f8f8] border-t border-[rgba(0,0,0,0.06)] overflow-hidden">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+    <div class="feature-layout flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
       <!-- Left: Mockup -->
       <div class="reveal-section flex-1 w-full" data-delay="0">
@@ -874,8 +886,8 @@
               <div class="flex-1 mx-4 bg-[#f5f5f5] rounded-lg px-3 py-1 text-xs text-[rgba(0,0,0,0.35)] border border-[rgba(0,0,0,0.07)] text-center">app.adopty.de/knowledge</div>
             </div>
             <div class="flex bg-white" style="min-height:420px">
-              <!-- Sidebar -->
-              <div class="w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex flex-col gap-0.5 flex-shrink-0">
+              <!-- Sidebar (hidden on mobile) -->
+              <div class="hidden lg:flex w-[148px] border-r border-[rgba(0,0,0,0.07)] bg-white px-2.5 py-4 flex-col gap-0.5 flex-shrink-0">
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Feed</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium text-[rgba(0,0,0,0.38)]">Gespeichert</div>
                 <div class="px-3 py-2 rounded-xl text-[11px] font-medium bg-[#0a0a0a] text-white">Knowledge Hub</div>
@@ -945,10 +957,10 @@
       <!-- Right: Text -->
       <div class="reveal-section flex-1 lg:max-w-[420px]" data-delay="150">
         <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-6">Knowledge Hub</p>
-        <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
           Kuratiertes KI-Wissen für das ganze Team.
         </h2>
-        <p class="text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-10">
+        <p class="text-base sm:text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-8 lg:mb-10">
           Admins sammeln Videos, Artikel, Links und Tipps rund um KI — gefiltert, durchsuchbar, angeheftet. Ein zentraler Ort statt 20 Slack-Links.
         </p>
         <ul class="space-y-6">
@@ -989,7 +1001,7 @@
 <!-- ── MONATSBERICHT FEATURE ── -->
 <section class="py-24 px-6 bg-white border-t border-[rgba(0,0,0,0.06)] overflow-hidden">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
+    <div class="feature-layout flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
 
       <!-- Mockup (right via flex-row-reverse) -->
       <div class="reveal-section flex-1 w-full" data-delay="0">
@@ -1033,7 +1045,7 @@
                   <p class="text-[9px]" style="color:rgba(255,255,255,.4)">Acme GmbH · 4 Mitarbeiter</p>
                 </div>
                 <!-- KPI row -->
-                <div class="grid grid-cols-4 gap-2">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <div class="bg-white rounded-xl p-2.5 text-center" style="border:1px solid rgba(0,0,0,0.07)">
                     <p class="text-sm font-black text-[#0a0a0a]">312h</p>
                     <p class="text-[8px] text-[rgba(0,0,0,0.4)] leading-tight">Stunden gespart</p>
@@ -1100,10 +1112,10 @@
           <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)]">Monatsbericht</p>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb">Nur für Admins</span>
         </div>
-        <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-6">
           Adoption-Report auf Knopfdruck — als PDF.
         </h2>
-        <p class="text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-10">
+        <p class="text-base sm:text-lg text-[rgba(0,0,0,0.55)] leading-relaxed mb-8 lg:mb-10">
           Ein vollständiger Monatsbericht mit KPIs, AI Maturity Score und Abteilungsauswertung — in Sekunden generiert, druckfertig als PDF.
         </p>
         <ul class="space-y-6">
@@ -1146,7 +1158,7 @@
   <div class="max-w-3xl mx-auto">
     <div class="reveal-section mb-14">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">So funktioniert es</p>
-      <h2 class="text-4xl sm:text-5xl font-black text-[#0a0a0a] leading-tight">In drei Schritten live.</h2>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight">In drei Schritten live.</h2>
     </div>
     <div class="space-y-10">
       <div class="reveal-section flex gap-5" data-delay="0">
@@ -1199,10 +1211,10 @@
 <section id="cta-section" class="py-24 px-6 bg-[#0a0a0a]">
   <div class="reveal-section max-w-2xl mx-auto">
     <p class="text-xs font-semibold tracking-[0.18em] uppercase text-white/40 mb-6">Kostenlose Beta</p>
-    <h2 class="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
       Hör auf zu experimentieren.<br class="hidden sm:block"> <span style="color:#10b981">Fang an zu skalieren.</span>
     </h2>
-    <p class="text-lg text-white/55 leading-relaxed mb-10 max-w-lg">
+    <p class="text-base sm:text-lg text-white/55 leading-relaxed mb-10 max-w-lg">
       Trag dich ein — bevor dein Wettbewerb Struktur bekommt. Frühe Teams erhalten kostenlosen Beta-Zugang und bauen direkt mit uns das Produkt, das ihnen am meisten hilft.
     </p>
     <div class="max-w-lg mb-6">

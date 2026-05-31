@@ -171,7 +171,7 @@ function initComparisonTable(lang) {
           ${rowsHtml}
         </div>
       </div>
-      <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:32px" class="sm:grid-cols-2 grid-cols-1">
+      <div style="margin-top:32px;display:grid;gap:32px" class="grid-cols-1 sm:grid-cols-2">
         <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.08);padding:24px">
           <p style="font-size:11px;font-weight:600;color:rgba(0,0,0,.35);text-transform:uppercase;letter-spacing:.06em;margin:0 0 16px">${coverageLabel}</p>
           <div style="display:flex;flex-direction:column;gap:12px">
