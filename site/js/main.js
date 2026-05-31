@@ -520,10 +520,60 @@ document.addEventListener('DOMContentLoaded', () => {
   initGovernanceMockup();
   initMockupBars();
   initAnchorNav();
+  initROICalc();
 
   const lang = document.documentElement.lang || 'de';
   initComparisonTable(lang);
 });
+
+// ─── ROI Calculator ───────────────────────────────────────────────────────────
+function initROICalc() {
+  const usersEl = document.getElementById('calc-users');
+  const rateEl  = document.getElementById('calc-rate');
+  const hoursEl = document.getElementById('calc-hours');
+  if (!usersEl) return;
+
+  const PRICE_PER_USER = 19; // € pro Nutzer / Monat
+
+  function fmtNum(n) {
+    return n.toLocaleString('de-DE');
+  }
+
+  function update() {
+    const users = +usersEl.value;
+    const rate  = +rateEl.value;
+    const hours = +hoursEl.value;
+
+    document.getElementById('calc-users-val').textContent = users;
+    document.getElementById('calc-rate-val').textContent  = '€' + rate;
+    document.getElementById('calc-hours-val').textContent = hours.toString().replace('.',',') + 'h / Person';
+
+    const activeUsers   = Math.round(users * 0.35);  // 35 % Aktivierungsrate
+    const hoursPerMonth = activeUsers * hours * 4;     // 4 Wochen/Monat
+    const valuePerMonth = hoursPerMonth * rate * 0.5;  // 50 % Realisierungsfaktor
+    const valuePerYear  = valuePerMonth * 12;
+
+    const cost   = users * PRICE_PER_USER;
+    const factor = (valuePerMonth / cost).toFixed(1).replace('.',',');
+    const paybackDays  = (cost / valuePerMonth) * 30;
+    const paybackLabel = paybackDays < 7
+      ? '< 1 Woche'
+      : paybackDays < 30
+        ? Math.ceil(paybackDays / 7) + ' Wochen'
+        : Math.ceil(paybackDays / 30) + ' Monate';
+
+    document.getElementById('calc-out-hours').textContent   = fmtNum(Math.round(hoursPerMonth)) + ' h';
+    document.getElementById('calc-out-monthly').textContent = '€ ' + fmtNum(Math.round(valuePerMonth));
+    document.getElementById('calc-out-yearly').textContent  = '€ ' + fmtNum(Math.round(valuePerYear));
+    document.getElementById('calc-out-cost').textContent    = '€ ' + fmtNum(cost) + ' / Monat';
+    document.getElementById('calc-plan-badge').textContent  = '€19 / Nutzer';
+    document.getElementById('calc-out-factor').textContent  = factor + '×';
+    document.getElementById('calc-out-payback').textContent = paybackLabel;
+  }
+
+  [usersEl, rateEl, hoursEl].forEach(el => el.addEventListener('input', update));
+  update();
+}
 
 // ─── Anchor sub-navigation ────────────────────────────────────────────────────
 function initAnchorNav() {
