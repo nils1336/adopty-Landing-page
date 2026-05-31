@@ -398,6 +398,106 @@ function initAppMockup() {
   window.addEventListener('pagehide', () => { alive = false; });
 }
 
+// ─── Governance mockup ───────────────────────────────────────────────────────
+function initGovernanceMockup() {
+  const card         = document.getElementById('gov-card');
+  const riskBar      = document.getElementById('gov-risk-bar');
+  const riskChecks   = document.getElementById('gov-risk-checks');
+  const approveBtn   = document.getElementById('gov-approve-btn');
+  const statusBadge  = document.getElementById('gov-status-badge');
+  const successEl    = document.getElementById('gov-success');
+  const pendingLabel = document.getElementById('gov-pending-label');
+  const pendingChip  = document.getElementById('gov-pending-chip');
+  const govBadge     = document.getElementById('gov-badge');
+  if (!card) return;
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  let alive = true;
+
+  function reset() {
+    card.style.opacity        = '1';
+    card.style.transform      = 'translateY(0)';
+    riskBar.style.width       = '0%';
+    riskChecks.style.opacity  = '0';
+    statusBadge.textContent   = 'Ausstehend';
+    statusBadge.style.cssText = 'flex-shrink:0;font-size:9px;padding:4px 8px;border-radius:9999px;font-weight:700;white-space:nowrap;transition:all .3s;background:#fefce8;color:#92400e;border:1px solid #fde68a';
+    approveBtn.style.background  = '#0a0a0a';
+    approveBtn.style.transform   = 'scale(1)';
+    successEl.style.display      = 'none';
+    pendingLabel.textContent     = '3 ausstehende Workflows';
+    pendingChip.textContent      = '3 ausstehend';
+    pendingChip.style.background = '#fefce8';
+    pendingChip.style.color      = '#92400e';
+    govBadge.textContent         = '3';
+    govBadge.style.background    = '#10b981';
+  }
+
+  async function loop() {
+    while (alive) {
+      reset();
+      await sleep(2000);
+
+      // Risk bar animates in
+      riskBar.style.width = '28%';
+      await sleep(900);
+
+      // Compliance checks appear
+      riskChecks.style.opacity = '1';
+      await sleep(1300);
+
+      // Approve button highlights
+      approveBtn.style.background = '#10b981';
+      approveBtn.style.transform  = 'scale(1.05)';
+      await sleep(750);
+
+      // Click — approve
+      approveBtn.style.transform = 'scale(1)';
+      statusBadge.textContent   = '✓ Freigegeben';
+      statusBadge.style.cssText = 'flex-shrink:0;font-size:9px;padding:4px 8px;border-radius:9999px;font-weight:700;white-space:nowrap;transition:all .3s;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0';
+      await sleep(500);
+
+      // Card out, success in
+      card.style.opacity        = '0';
+      card.style.transform      = 'translateY(-8px)';
+      successEl.style.display   = 'flex';
+      pendingLabel.textContent  = '2 ausstehende Workflows';
+      pendingChip.textContent   = '2 ausstehend';
+      pendingChip.style.color   = '#92400e';
+      govBadge.textContent      = '2';
+      await sleep(3800);
+    }
+  }
+
+  loop();
+  window.addEventListener('pagehide', () => { alive = false; });
+}
+
+// ─── Mockup bar animations (Dashboard + Report) ───────────────────────────────
+function initMockupBars() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      // Animate dash-bar-fill elements inside this container
+      entry.target.querySelectorAll('.dash-bar-fill, .rep-bar-fill').forEach(el => {
+        const w = el.dataset.barWidth;
+        if (w) el.style.width = w + '%';
+      });
+      // Animate maturity bar
+      const maturity = entry.target.querySelector('#rep-maturity-bar');
+      if (maturity) maturity.style.width = '74%';
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.dash-bar-fill, .rep-bar-fill, #rep-maturity-bar').forEach(el => {
+    const section = el.closest('section');
+    if (section && !section.dataset.barsObserved) {
+      section.dataset.barsObserved = '1';
+      observer.observe(section);
+    }
+  });
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -405,6 +505,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountUps();
   initForms();
   initAppMockup();
+  initGovernanceMockup();
+  initMockupBars();
 
   const lang = document.documentElement.lang || 'de';
   initComparisonTable(lang);
