@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-
-Host: https://adopty.de
-Sitemap: https://adopty.de/sitemap.xml
