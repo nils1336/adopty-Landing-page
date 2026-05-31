@@ -1,7 +1,7 @@
 'use strict';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
-const FORMSPREE = 'https://formspree.io/f/xxxxxxxxxxxx';
+const CONTACT_ENDPOINT = '/api/contact.php';
 
 // ─── Feature data (DE + EN) ───────────────────────────────────────────────────
 const FEATURES_DE = [
@@ -312,7 +312,7 @@ function initForms() {
       if (!input || !input.value.trim()) return;
       if (btn) { btn.disabled = true; btn.textContent = form.dataset.loadingText || 'Einen Moment…'; }
       try {
-        const res = await fetch(FORMSPREE, {
+        const res = await fetch(CONTACT_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
           body: JSON.stringify({ email: input.value }),
@@ -327,7 +327,7 @@ function initForms() {
         }
       } catch {
         if (errEl) { errEl.style.display = 'block'; }
-        if (btn)   { btn.disabled = false; btn.innerHTML = form.dataset.submitHtml || 'Zur Warteliste'; }
+        if (btn)   { btn.disabled = false; btn.innerHTML = form.dataset.submitHtml || 'Früher Zugang sichern'; }
       }
     });
   });
