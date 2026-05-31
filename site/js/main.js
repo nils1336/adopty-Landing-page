@@ -5,28 +5,28 @@ const CONTACT_ENDPOINT = '/api/contact.php';
 
 // ─── Feature data (DE + EN) ───────────────────────────────────────────────────
 const FEATURES_DE = [
-  { label:'Social Discovery Feed',         cat:'Adoption',    why:'Mitarbeiter entdecken Workflows von Kollegen — wie LinkedIn, aber intern.',        excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Nur als Datenbank-Ansicht — kein Feed, keine Bewertungen, kein sozialer Kontext.'} },
-  { label:'ROI-Messung (Stunden & €)',      cat:'Analytics',   why:'Der CFO fragt nach Zahlen — Adopty liefert sie automatisch.',                        excel:'partial', conf:'no', notion:'partial', notes:{excel:'Manuell berechenbar, aber keine Live-Daten, kein automatisches Tracking.', notion:'Über Formeln möglich, aber aufwendig zu pflegen und nicht automatisch.'} },
-  { label:'Adoption-Tracking',             cat:'Analytics',   why:'Wer hat welchen Workflow tatsächlich übernommen und nutzt ihn?',                     excel:'no',  conf:'no',  notion:'no',      notes:{} },
-  { label:'Freigabeprozess für Admins',    cat:'Governance',  why:'Qualitätskontrolle: nur geprüfte Workflows erreichen den Feed.',                     excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Seitenreview möglich, aber kein dedizierter Workflow-Freigabeprozess.', notion:'Database-Status anpassbar, aber kein nativer Approval-Flow.'} },
+  { label:'Social Discovery Feed',         core:true,  cat:'Adoption',    why:'Mitarbeiter entdecken Workflows von Kollegen — wie LinkedIn, aber intern.',        excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Nur als Datenbank-Ansicht — kein Feed, keine Bewertungen, kein sozialer Kontext.'} },
+  { label:'ROI-Messung (Stunden & €)',      core:true,  cat:'Analytics',   why:'Der CFO fragt nach Zahlen — Adopty liefert sie automatisch.',                        excel:'partial', conf:'no', notion:'partial', notes:{excel:'Manuell berechenbar, aber keine Live-Daten, kein automatisches Tracking.', notion:'Über Formeln möglich, aber aufwendig zu pflegen und nicht automatisch.'} },
+  { label:'Adoption-Tracking',             core:true,  cat:'Analytics',   why:'Wer hat welchen Workflow tatsächlich übernommen und nutzt ihn?',                     excel:'no',  conf:'no',  notion:'no',      notes:{} },
+  { label:'Freigabeprozess für Admins',    core:true,  cat:'Governance',  why:'Qualitätskontrolle: nur geprüfte Workflows erreichen den Feed.',                     excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Seitenreview möglich, aber kein dedizierter Workflow-Freigabeprozess.', notion:'Database-Status anpassbar, aber kein nativer Approval-Flow.'} },
   { label:'Prompt-Bibliothek & Copy',      cat:'Adoption',    why:'Prompts strukturiert ablegen, versionieren, direkt per Klick kopieren.',            excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Text in Zellen — kein Syntax-Highlighting, kein 1-Klick-Copy.', conf:'Code-Blöcke vorhanden, aber kein Prompt-spezifisches UX.', notion:'Code-Blöcke + Copy-Button, aber keine Versionierung oder Prompt-Kontext.'} },
   { label:'Webhook-Import (n8n / Zapier)', cat:'Adoption',    why:'Workflows automatisch aus bestehenden Tools importieren — 0 manueller Aufwand.',    excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Notion API vorhanden, aber komplexe Einrichtung ohne nativen Webhook-Endpunkt.'} },
   { label:'Abteilungsfilter & KI-Empfehlungen', cat:'Adoption', why:'Marketing sieht Marketing-Workflows, HR die HR-relevanten — personalisiert.',   excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Manuell filterbar — keine Personalisierung.', conf:'Spaces pro Team möglich, aber kein Empfehlungsalgorithmus.', notion:'Filter-Ansichten möglich, aber kein automatisches Empfehlungssystem.'} },
   { label:'EU AI Act Compliance',          cat:'Governance',  why:'Risikoeinstufung, Checklisten und Audit-Log pro Workflow — ab 2026 Pflicht.',       excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Eigene Tabellen möglich, aber kein strukturiertes Compliance-Framework.', conf:'Dokumentation möglich, aber keine integrierten Risikobewertungen.', notion:'Flexible Datenbanken, aber keine eingebaute EU AI Act Logik.'} },
-  { label:'Setup-Zeit bis erster Workflow', cat:'Onboarding', why:'Schneller Start = schnellerer ROI.',                                                 excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 Stunden für sinnvolle Struktur. Ohne IT-Kenntnisse schnell chaotisch.', conf:'Einrichtung + Schulung: oft mehrere Tage.', notion:'Flexibel, aber hohes Setup-Investment für sinnvolle KI-Workflow-Strukturen.'} },
+  { label:'Setup-Zeit bis erster Workflow', core:true, cat:'Onboarding', why:'Schneller Start = schnellerer ROI.',                                                 excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 Stunden für sinnvolle Struktur. Ohne IT-Kenntnisse schnell chaotisch.', conf:'Einrichtung + Schulung: oft mehrere Tage.', notion:'Flexibel, aber hohes Setup-Investment für sinnvolle KI-Workflow-Strukturen.'} },
   { label:'Skalierung auf 100+ Workflows', cat:'Onboarding', why:'Mit wachsendem Wissensschatz muss die Plattform mithalten.',                         excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Viele Seiten werden schnell unübersichtlich ohne klare Governance.', notion:'Datenbanken skalieren gut, aber Discovery leidet ohne Feed-Mechanik.'} },
 ];
 
 const FEATURES_EN = [
-  { label:'Social Discovery Feed',              cat:'Adoption',    why:'Employees discover workflows from colleagues — like LinkedIn, but internal.',    excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Database view only — no feed, no ratings, no social context.'} },
-  { label:'ROI Tracking (hours & €)',           cat:'Analytics',   why:'The CFO asks for numbers — Adopty delivers them automatically.',                  excel:'partial', conf:'no', notion:'partial', notes:{excel:'Manually calculable, but no live data, no automatic tracking.', notion:'Possible via formulas, but cumbersome to maintain and not automated.'} },
-  { label:'Adoption Tracking',                  cat:'Analytics',   why:'Who actually adopted which workflow and is using it?',                            excel:'no',  conf:'no',  notion:'no',      notes:{} },
-  { label:'Admin Approval Workflow',            cat:'Governance',  why:'Quality control: only reviewed workflows reach the feed.',                        excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Page review possible, but no dedicated workflow approval process.', notion:'Database status customisable, but no native approval flow.'} },
+  { label:'Social Discovery Feed',              core:true,  cat:'Adoption',    why:'Employees discover workflows from colleagues — like LinkedIn, but internal.',    excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Database view only — no feed, no ratings, no social context.'} },
+  { label:'ROI Tracking (hours & €)',           core:true,  cat:'Analytics',   why:'The CFO asks for numbers — Adopty delivers them automatically.',                  excel:'partial', conf:'no', notion:'partial', notes:{excel:'Manually calculable, but no live data, no automatic tracking.', notion:'Possible via formulas, but cumbersome to maintain and not automated.'} },
+  { label:'Adoption Tracking',                  core:true,  cat:'Analytics',   why:'Who actually adopted which workflow and is using it?',                            excel:'no',  conf:'no',  notion:'no',      notes:{} },
+  { label:'Admin Approval Workflow',            core:true,  cat:'Governance',  why:'Quality control: only reviewed workflows reach the feed.',                        excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Page review possible, but no dedicated workflow approval process.', notion:'Database status customisable, but no native approval flow.'} },
   { label:'Prompt Library & Copy',              cat:'Adoption',    why:'Store prompts, version them, copy with one click.',                               excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Text in cells — no syntax highlighting, no 1-click copy.', conf:'Code blocks available, but no prompt-specific UX.', notion:'Code blocks + copy button, but no versioning or prompt context.'} },
   { label:'Webhook Import (n8n / Zapier)',       cat:'Adoption',    why:'Auto-import workflows from existing tools — zero manual effort.',                 excel:'no',  conf:'no',  notion:'partial', notes:{notion:'Notion API available, but complex setup without a native webhook endpoint.'} },
   { label:'Department Filter & AI Recs',        cat:'Adoption',    why:'Marketing sees marketing workflows, HR sees HR-relevant ones — personalised.',   excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Manually filterable — no personalisation.', conf:'Team spaces possible, but no recommendation engine.', notion:'Filter views possible, but no automatic recommendation system.'} },
   { label:'EU AI Act Compliance',               cat:'Governance',  why:'Risk classification, checklists & audit log per workflow — mandatory from 2026.',excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Custom tables possible, but no structured compliance framework.', conf:'Documentation possible, but no integrated risk assessments.', notion:'Flexible databases, but no built-in EU AI Act logic.'} },
-  { label:'Time-to-First-Workflow',             cat:'Onboarding',  why:'Faster start = faster ROI.',                                                      excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 hours for a sensible structure. Gets chaotic fast without IT knowledge.', conf:'Setup + training: often several days.', notion:'Flexible, but high setup investment for meaningful AI workflow structures.'} },
+  { label:'Time-to-First-Workflow',             core:true,  cat:'Onboarding',  why:'Faster start = faster ROI.',                                                      excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 hours for a sensible structure. Gets chaotic fast without IT knowledge.', conf:'Setup + training: often several days.', notion:'Flexible, but high setup investment for meaningful AI workflow structures.'} },
   { label:'Scales to 100+ Workflows',           cat:'Onboarding',  why:'As the knowledge base grows, the platform must keep up.',                         excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Many pages get messy fast without clear governance.', notion:'Databases scale well, but discovery suffers without feed mechanics.'} },
 ];
 
@@ -75,6 +75,10 @@ function initComparisonTable(lang) {
   const noLabel      = lang === 'en' ? 'No'      : 'Nein';
 
   let activecat = 'all';
+  let showAllFeatures = false;
+
+  const showAllLabel  = lang === 'en' ? 'Show all features ↓' : 'Alle Features anzeigen ↓';
+  const showLessLabel = lang === 'en' ? 'Show less ↑'         : 'Weniger anzeigen ↑';
 
   function score(key) {
     return features.filter(f=>f[key]==='full').length + features.filter(f=>f[key]==='partial').length * 0.5;
@@ -101,7 +105,10 @@ function initComparisonTable(lang) {
   }
 
   function render() {
-    const filtered = activecat === 'all' ? features : features.filter(f=>f.cat===activecat);
+    // Core-only mode: show 5 key features unless user expanded
+    let filtered = activecat === 'all'
+      ? (showAllFeatures ? features : features.filter(f=>f.core))
+      : features.filter(f=>f.cat===activecat);
 
     // Filter buttons
     const filterHtml = ['all',...cats].map(cat => {
@@ -171,6 +178,10 @@ function initComparisonTable(lang) {
           ${rowsHtml}
         </div>
       </div>
+      ${activecat === 'all' ? `
+      <div style="text-align:center;margin-top:16px">
+        <button onclick="window._ctToggleAll()" style="font-size:13px;font-weight:600;color:rgba(0,0,0,.45);background:none;border:1px solid rgba(0,0,0,.12);border-radius:9999px;padding:8px 20px;cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='rgba(0,0,0,.35)';this.style.color='#0a0a0a'" onmouseout="this.style.borderColor='rgba(0,0,0,.12)';this.style.color='rgba(0,0,0,.45)'">${showAllFeatures ? showLessLabel : showAllLabel}</button>
+      </div>` : ''}
       <div style="margin-top:32px;display:grid;gap:32px" class="grid-cols-1 sm:grid-cols-2">
         <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.08);padding:24px">
           <p style="font-size:11px;font-weight:600;color:rgba(0,0,0,.35);text-transform:uppercase;letter-spacing:.06em;margin:0 0 16px">${coverageLabel}</p>
@@ -200,7 +211,8 @@ function initComparisonTable(lang) {
     initScoreBars();
   }
 
-  window._ctFilter = (cat) => { activecat = cat; render(); };
+  window._ctFilter    = (cat) => { activecat = cat; render(); };
+  window._ctToggleAll = ()    => { showAllFeatures = !showAllFeatures; render(); };
 
   render();
 }
@@ -507,7 +519,42 @@ document.addEventListener('DOMContentLoaded', () => {
   initAppMockup();
   initGovernanceMockup();
   initMockupBars();
+  initAnchorNav();
 
   const lang = document.documentElement.lang || 'de';
   initComparisonTable(lang);
 });
+
+// ─── Anchor sub-navigation ────────────────────────────────────────────────────
+function initAnchorNav() {
+  const nav    = document.getElementById('anchor-nav');
+  const hero   = document.querySelector('section.relative.pt-28');
+  if (!nav || !hero) return;
+
+  const threshold = () => hero.offsetHeight * 0.55;
+  const links = nav.querySelectorAll('a.an-link');
+
+  // Show / hide on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > threshold()) {
+      nav.classList.add('an-visible');
+    } else {
+      nav.classList.remove('an-visible');
+    }
+    updateActiveLink();
+  }, { passive: true });
+
+  // Highlight the link whose section is currently in view
+  function updateActiveLink() {
+    let current = null;
+    links.forEach(link => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      if (target.getBoundingClientRect().top <= 100) {
+        current = link;
+      }
+    });
+    links.forEach(l => l.classList.remove('an-active'));
+    if (current) current.classList.add('an-active');
+  }
+}

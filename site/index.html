@@ -42,6 +42,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{}}}</script>
   <style>
+    /* ── Global ──────────────────────────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    /* ── Anchor nav ──────────────────────────────────────────────────────────── */
+    #anchor-nav {
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    #anchor-nav.an-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .an-link { scroll-margin-top: 7rem; }
+    .an-active { color: #0a0a0a !important; background: rgba(0,0,0,0.05) !important; }
+
     /* ── Mobile-only overrides (higher specificity beats Tailwind utilities) ── */
     @media (max-width: 1023px) {
       section.py-24 { padding-top: 4rem; padding-bottom: 4rem; }
@@ -74,6 +90,17 @@
     </div>
   </div>
 </header>
+
+<!-- ── ANCHOR NAV ── -->
+<nav id="anchor-nav" aria-label="Seitennavigation" class="fixed top-16 left-0 right-0 z-40 bg-white/95 border-b border-[rgba(0,0,0,0.07)]" style="backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-10 flex items-center gap-0.5 overflow-x-auto" style="scrollbar-width:none">
+    <a href="#personas"             class="an-link flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-[rgba(0,0,0,0.45)] hover:text-[#0a0a0a] hover:bg-[rgba(0,0,0,0.04)] transition-all whitespace-nowrap">Für deine Rolle</a>
+    <a href="#features"             class="an-link flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-[rgba(0,0,0,0.45)] hover:text-[#0a0a0a] hover:bg-[rgba(0,0,0,0.04)] transition-all whitespace-nowrap">Features</a>
+    <a href="#vergleich"            class="an-link flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-[rgba(0,0,0,0.45)] hover:text-[#0a0a0a] hover:bg-[rgba(0,0,0,0.04)] transition-all whitespace-nowrap">Vergleich</a>
+    <a href="#wie-es-funktioniert"  class="an-link flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-[rgba(0,0,0,0.45)] hover:text-[#0a0a0a] hover:bg-[rgba(0,0,0,0.04)] transition-all whitespace-nowrap">So geht's</a>
+    <a href="#testimonials"         class="an-link flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold text-[rgba(0,0,0,0.45)] hover:text-[#0a0a0a] hover:bg-[rgba(0,0,0,0.04)] transition-all whitespace-nowrap">Stimmen</a>
+  </div>
+</nav>
 
 <!-- ── HERO ── -->
 <section class="relative pt-28 pb-0 px-6 overflow-hidden">
@@ -326,6 +353,165 @@
   </div>
 </section>
 
+<!-- ── PERSONAS ── -->
+<section id="personas" class="py-24 px-6 bg-white border-y border-[rgba(0,0,0,0.06)]">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal-section mb-12 text-center">
+      <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Adopty für deine Rolle</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight mb-4">Wer profitiert — und wie.</h2>
+      <p class="text-base sm:text-lg text-[rgba(0,0,0,0.55)] max-w-xl mx-auto">Je nach Rolle bringt Adopty konkrete Antworten auf konkrete Probleme.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+      <!-- Persona 1: Head of Digital -->
+      <div class="reveal-section" data-delay="0">
+        <div class="h-full bg-white rounded-2xl border border-[rgba(0,0,0,0.08)] p-7 flex flex-col gap-5 hover:border-[rgba(0,0,0,0.18)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(10,10,10,0.07)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-[rgba(0,0,0,0.35)] uppercase tracking-[0.12em]">Head of Digital / CDO</p>
+              <p class="text-xs text-[rgba(0,0,0,0.4)] mt-0.5">Digitalisierungsleiter</p>
+            </div>
+          </div>
+          <div class="border-l-2 border-[rgba(0,0,0,0.1)] pl-4">
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed italic">„Ich weiß, dass mein Team KI nutzt. Aber wenn der CFO nach dem ROI fragt, kann ich keine Zahlen liefern."</p>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#0a0a0a] mb-1.5">Was sich ändert</p>
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">Das GF-Dashboard zeigt ROI, Adoption Rate und AI Maturity Score auf einen Blick. Dein nächster Board-Report schreibt sich in Minuten — vollständig, druckfertig als PDF.</p>
+          </div>
+          <ul class="space-y-2.5 mt-auto pt-4 border-t border-[rgba(0,0,0,0.06)]">
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              GF-Dashboard mit KPI-Übersicht
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              AI Maturity Score (0–10)
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Monatsbericht als PDF auf Knopfdruck
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Persona 2: IT-Leiter / CISO -->
+      <div class="reveal-section" data-delay="100">
+        <div class="h-full bg-white rounded-2xl border border-[rgba(0,0,0,0.08)] p-7 flex flex-col gap-5 hover:border-[rgba(0,0,0,0.18)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(16,185,129,0.09)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-[rgba(0,0,0,0.35)] uppercase tracking-[0.12em]">IT-Leiter / CISO</p>
+              <p class="text-xs text-[rgba(0,0,0,0.4)] mt-0.5">Head of IT · Datenschutzbeauftragter</p>
+            </div>
+          </div>
+          <div class="border-l-2 border-[rgba(0,0,0,0.1)] pl-4">
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed italic">„Mitarbeiter nutzen ChatGPT mit Kundendaten. Ich weiß es — aber ohne zentrale Kontrolle kann ich nicht eingreifen."</p>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#0a0a0a] mb-1.5">Was sich ändert</p>
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">Freigabe-Inbox, Tool-Governance-Tabelle und strukturierter Approval-Flow geben dir die Kontrolle zurück — ohne den Fortschritt im Team zu bremsen.</p>
+          </div>
+          <ul class="space-y-2.5 mt-auto pt-4 border-t border-[rgba(0,0,0,0.06)]">
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Freigabe-Inbox für Workflow-Approval
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Tool-Governance &amp; Shadow-IT-Kontrolle
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              EU AI Act: Approval-Log pro Workflow
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Persona 3: HR / L&D -->
+      <div class="reveal-section" data-delay="200">
+        <div class="h-full bg-white rounded-2xl border border-[rgba(0,0,0,0.08)] p-7 flex flex-col gap-5 hover:border-[rgba(0,0,0,0.18)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.09)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-[rgba(0,0,0,0.35)] uppercase tracking-[0.12em]">HR / L&amp;D Manager</p>
+              <p class="text-xs text-[rgba(0,0,0,0.4)] mt-0.5">People &amp; Learning Development</p>
+            </div>
+          </div>
+          <div class="border-l-2 border-[rgba(0,0,0,0.1)] pl-4">
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed italic">„KI-Schulungen verpuffen nach zwei Wochen. Das Wissen bleibt bei Einzelpersonen — und geht mit ihnen, wenn sie kündigen."</p>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#0a0a0a] mb-1.5">Was sich ändert</p>
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">Der Knowledge Hub macht Best Practices dauerhaft zugänglich. Der Feed zeigt, wer im Team KI wirklich nutzt — KI-Champions werden sichtbar und nachvollziehbar.</p>
+          </div>
+          <ul class="space-y-2.5 mt-auto pt-4 border-t border-[rgba(0,0,0,0.06)]">
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Knowledge Hub: Videos, Artikel, Tipps
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              KI-Champions im Feed sichtbar machen
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Adoption-Tracking nach Abteilung
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Persona 4: Mitarbeitende -->
+      <div class="reveal-section" data-delay="300">
+        <div class="h-full bg-white rounded-2xl border border-[rgba(0,0,0,0.08)] p-7 flex flex-col gap-5 hover:border-[rgba(0,0,0,0.18)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.09)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-[rgba(0,0,0,0.35)] uppercase tracking-[0.12em]">Mitarbeitende</p>
+              <p class="text-xs text-[rgba(0,0,0,0.4)] mt-0.5">Teams &amp; Fachbereiche · KI-Alltagsnutzer</p>
+            </div>
+          </div>
+          <div class="border-l-2 border-[rgba(0,0,0,0.1)] pl-4">
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed italic">„Ich finde nie mehr den Prompt, der damals so gut funktioniert hat. Jeder hat seine eigene Liste — geteilt wird nichts."</p>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#0a0a0a] mb-1.5">Was sich ändert</p>
+            <p class="text-sm text-[rgba(0,0,0,0.55)] leading-relaxed">Der Feed zeigt die besten KI-Workflows aus dem eigenen Team — nach Abteilung gefiltert, direkt kopierbar. Kein Suchen mehr, kein Rad neu erfinden.</p>
+          </div>
+          <ul class="space-y-2.5 mt-auto pt-4 border-t border-[rgba(0,0,0,0.06)]">
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Workflows entdecken &amp; per Klick übernehmen
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Prompts direkt aus der Karte kopieren
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-[#0a0a0a]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+              Eigene KI-Lösungen mit dem Team teilen
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── STATS ── -->
 <section class="py-16 px-6 bg-white border-b border-[rgba(0,0,0,0.06)]">
   <div class="reveal-section max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10">
@@ -476,7 +662,7 @@
 </section>
 
 <!-- ── COMPARISON TABLE ── -->
-<section class="py-24 px-6 bg-[#f8f8f8] border-y border-[rgba(0,0,0,0.06)]">
+<section id="vergleich" class="py-24 px-6 bg-[#f8f8f8] border-y border-[rgba(0,0,0,0.06)]">
   <div class="max-w-6xl mx-auto">
     <div class="max-w-2xl mb-12">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Der direkte Vergleich</p>
@@ -488,7 +674,7 @@
 </section>
 
 <!-- ── 4 PILLARS ── -->
-<section class="py-24 px-6 bg-white">
+<section id="features" class="py-24 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
     <div class="reveal-section mb-16">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Was Adopty kann</p>
@@ -1154,7 +1340,7 @@
 </section>
 
 <!-- ── HOW IT WORKS ── -->
-<section class="py-24 px-6 bg-[#f8f8f8] border-y border-[rgba(0,0,0,0.06)]">
+<section id="wie-es-funktioniert" class="py-24 px-6 bg-[#f8f8f8] border-y border-[rgba(0,0,0,0.06)]">
   <div class="max-w-3xl mx-auto">
     <div class="reveal-section mb-14">
       <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">So funktioniert es</p>
@@ -1188,21 +1374,75 @@
   </div>
 </section>
 
-<!-- ── QUOTE ── -->
-<section class="py-20 px-6 bg-white">
-  <div class="reveal-section max-w-3xl mx-auto">
-    <div class="text-6xl text-[rgba(0,0,0,0.08)] font-black leading-none mb-6" style="font-family:Georgia,serif">"</div>
-    <blockquote class="text-2xl sm:text-3xl font-black text-[#0a0a0a] leading-snug">
-      Wir wussten, dass unser Team KI nutzt. Aber wir hatten keinen Überblick —
-      weder über den Nutzen noch über die Risiken.
-      <span style="color:#10b981">Adopty hat das in einer Woche geändert.</span>
-    </blockquote>
-    <div class="mt-8 flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-[#0a0a0a] flex items-center justify-center text-white font-bold text-sm">MK</div>
-      <div>
-        <p class="text-sm font-bold text-[#0a0a0a]">Markus K.</p>
-        <p class="text-xs text-[rgba(0,0,0,0.4)]">Head of Digital, Mittelständischer Maschinenbauer</p>
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials" class="py-24 px-6 bg-white border-t border-[rgba(0,0,0,0.06)]">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal-section mb-12">
+      <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[rgba(0,0,0,0.35)] mb-4">Beta-Nutzer</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a0a0a] leading-tight">Was Teams sagen.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Testimonial 1 -->
+      <div class="reveal-section" data-delay="0">
+        <div class="h-full bg-[#f9f8f5] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="text-4xl text-[rgba(0,0,0,0.12)] font-black leading-none" style="font-family:Georgia,serif">"</div>
+          <blockquote class="flex-1 text-[15px] text-[#0a0a0a] leading-relaxed font-medium">
+            Wir wussten, dass unser Team KI nutzt. Aber wir hatten keinen Überblick — weder über den Nutzen noch über die Risiken.
+            <span style="color:#10b981"> Adopty hat das in einer Woche geändert.</span>
+          </blockquote>
+          <div class="pt-5 border-t border-[rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-[#0a0a0a] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">MK</div>
+              <div>
+                <p class="text-sm font-bold text-[#0a0a0a]">Markus K.</p>
+                <p class="text-xs text-[rgba(0,0,0,0.45)] mt-0.5">Head of Digital · Maschinenbauer (190 MA)</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Testimonial 2 -->
+      <div class="reveal-section" data-delay="100">
+        <div class="h-full bg-[#f9f8f5] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="text-4xl text-[rgba(0,0,0,0.12)] font-black leading-none" style="font-family:Georgia,serif">"</div>
+          <blockquote class="flex-1 text-[15px] text-[#0a0a0a] leading-relaxed font-medium">
+            Als IT-Leiterin war Shadow-IT mit KI-Tools mein größtes Kopfzerbrechen. Mit Adopty hab ich endlich eine Freigabe-Inbox —
+            <span style="color:#10b981"> kein Workflow landet im Feed ohne mein Okay.</span>
+          </blockquote>
+          <div class="pt-5 border-t border-[rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0" style="background:#10b981">SW</div>
+              <div>
+                <p class="text-sm font-bold text-[#0a0a0a]">Sandra W.</p>
+                <p class="text-xs text-[rgba(0,0,0,0.45)] mt-0.5">IT-Leiterin · Beratungshaus (75 MA)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="reveal-section" data-delay="200">
+        <div class="h-full bg-[#f9f8f5] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="text-4xl text-[rgba(0,0,0,0.12)] font-black leading-none" style="font-family:Georgia,serif">"</div>
+          <blockquote class="flex-1 text-[15px] text-[#0a0a0a] leading-relaxed font-medium">
+            Unsere KI-Schulungen wurden immer von denselben drei Leuten besucht. Mit dem Feed sehen jetzt alle, was die besten Nutzer machen —
+            <span style="color:#10b981"> Adoption läuft seitdem fast von selbst.</span>
+          </blockquote>
+          <div class="pt-5 border-t border-[rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0" style="background:#7c3aed">PN</div>
+              <div>
+                <p class="text-sm font-bold text-[#0a0a0a]">Petra N.</p>
+                <p class="text-xs text-[rgba(0,0,0,0.45)] mt-0.5">HR-Managerin · E-Commerce (110 MA)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
