@@ -566,7 +566,6 @@ function initROICalc() {
     document.getElementById('calc-out-monthly').textContent = '€ ' + fmtNum(Math.round(valuePerMonth));
     document.getElementById('calc-out-yearly').textContent  = '€ ' + fmtNum(Math.round(valuePerYear));
     document.getElementById('calc-out-cost').textContent    = '€ ' + fmtNum(cost) + ' / Monat';
-    document.getElementById('calc-plan-badge').textContent  = '€19 / Nutzer';
     document.getElementById('calc-out-factor').textContent  = factor + '×';
     document.getElementById('calc-out-payback').textContent = paybackLabel;
   }
