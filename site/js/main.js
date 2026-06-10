@@ -15,6 +15,7 @@ const FEATURES_DE = [
   { label:'EU AI Act Compliance',          cat:'Governance',  why:'Risikoeinstufung, Checklisten und Audit-Log pro Workflow — ab 2026 Pflicht.',       excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Eigene Tabellen möglich, aber kein strukturiertes Compliance-Framework.', conf:'Dokumentation möglich, aber keine integrierten Risikobewertungen.', notion:'Flexible Datenbanken, aber keine eingebaute EU AI Act Logik.'} },
   { label:'Setup-Zeit bis erster Workflow', core:true, cat:'Onboarding', why:'Schneller Start = schnellerer ROI.',                                                 excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 Stunden für sinnvolle Struktur. Ohne IT-Kenntnisse schnell chaotisch.', conf:'Einrichtung + Schulung: oft mehrere Tage.', notion:'Flexibel, aber hohes Setup-Investment für sinnvolle KI-Workflow-Strukturen.'} },
   { label:'Skalierung auf 100+ Workflows', cat:'Onboarding', why:'Mit wachsendem Wissensschatz muss die Plattform mithalten.',                         excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Viele Seiten werden schnell unübersichtlich ohne klare Governance.', notion:'Datenbanken skalieren gut, aber Discovery leidet ohne Feed-Mechanik.'} },
+  { label:'Abteilungs-Onboarding',         cat:'Onboarding', why:'Neue Mitarbeitende starten strukturiert — mit Lernpfad für ihre Abteilung.',      excel:'no',  conf:'no',      notion:'partial', notes:{notion:'Manuell als Datenbank einrichtbar, aber kein automatischer Onboarding-Trigger.'} },
 ];
 
 const FEATURES_EN = [
@@ -28,6 +29,7 @@ const FEATURES_EN = [
   { label:'EU AI Act Compliance',               cat:'Governance',  why:'Risk classification, checklists & audit log per workflow — mandatory from 2026.',excel:'partial', conf:'partial', notion:'partial', notes:{excel:'Custom tables possible, but no structured compliance framework.', conf:'Documentation possible, but no integrated risk assessments.', notion:'Flexible databases, but no built-in EU AI Act logic.'} },
   { label:'Time-to-First-Workflow',             core:true,  cat:'Onboarding',  why:'Faster start = faster ROI.',                                                      excel:'partial', conf:'partial', notion:'partial', notes:{excel:'1–2 hours for a sensible structure. Gets chaotic fast without IT knowledge.', conf:'Setup + training: often several days.', notion:'Flexible, but high setup investment for meaningful AI workflow structures.'} },
   { label:'Scales to 100+ Workflows',           cat:'Onboarding',  why:'As the knowledge base grows, the platform must keep up.',                         excel:'no',  conf:'partial', notion:'partial', notes:{conf:'Many pages get messy fast without clear governance.', notion:'Databases scale well, but discovery suffers without feed mechanics.'} },
+  { label:'Department Onboarding',              cat:'Onboarding',  why:'New employees start structured — with a learning path for their department.',  excel:'no',  conf:'no',      notion:'partial', notes:{notion:'Manually set up as a database, but no automatic onboarding trigger.'} },
 ];
 
 const TOOLS = [
@@ -521,6 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMockupBars();
   initAnchorNav();
   initROICalc();
+  initScrollToCTA();
 
   const lang = document.documentElement.lang || 'de';
   initComparisonTable(lang);
